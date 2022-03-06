@@ -6,7 +6,7 @@ export async function getCategories(request, response) {
 }
 
 export async function insertCategories(request, response) {
-  if (request.body.name === '') return response.sendStatus(400);
+  if (request.body.name === ' ') return response.sendStatus(400);
   try {
     const existName = await connection.query('SELECT * FROM categories WHERE name=$1', [request.body.name]);
     if (existName.rows.length !== 0) return response.sendStatus(409);
