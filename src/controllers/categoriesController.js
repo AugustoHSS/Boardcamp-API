@@ -1,8 +1,12 @@
 import connection from '../database/database.js';
 
 export async function getCategories(request, response) {
-  const categories = await connection.query('SELECT * FROM categories');
-  response.send(categories.rows);
+  try {
+    const categories = await connection.query('SELECT * FROM categories');
+    return response.send(categories.rows);
+  } catch {
+    return response.sendStatus(500);
+  }
 }
 
 export async function insertCategories(request, response) {

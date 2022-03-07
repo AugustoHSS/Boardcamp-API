@@ -3,7 +3,7 @@ import verifyCategoriesSchemaMiddleware from '../middlewares/verifyCategoriesSch
 import { getCategories, insertCategories } from '../controllers/categoriesController.js';
 
 const categoriesRouter = express.Router();
-categoriesRouter.get('/customers', getCategories);
-categoriesRouter.post('/customers', verifyCategoriesSchemaMiddleware, insertCategories);
+categoriesRouter.get('/categories', getCategories);
+categoriesRouter.post('/categories', verifyCategoriesSchemaMiddleware, insertCategories);
 
 export default categoriesRouter;
