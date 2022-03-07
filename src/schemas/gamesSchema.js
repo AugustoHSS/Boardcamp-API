@@ -1,10 +1,7 @@
 import joi from 'joi';
 
-function sendError() {
-  return 400;
-}
 const gamesSchema = joi.object({
-  name: joi.string().required().error(() => sendError),
+  name: joi.string().required(),
   image: joi.string().uri().required(),
   stockTotal: joi.number().integer().required(),
   categoryId: joi.number().integer().required(),
